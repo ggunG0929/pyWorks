@@ -5,6 +5,7 @@
 # 출력 - f string 방식(format)
 # 예외(오류) 처리 - try: 실행문  except 오류유형: 처리 구문
 '''
+# 내답
 year=int(input("연도를 입력하세요: "))
 if year%400==0:
     leap="윤년"
@@ -16,6 +17,7 @@ else:
     leap="평년"
 print(str(year)+"년은 "+leap+"입니다." )
 '''
+# 선생님답
 try:
     year=int(input("연도를 입력하세요: "))
     if (year%4 == 0 and year%100 != 0) or year%400 == 0:
