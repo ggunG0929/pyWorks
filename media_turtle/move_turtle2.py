@@ -1,53 +1,19 @@
-# turtle 모듈
+# turtle 모듈2
 import turtle as t
 
 t.shape("turtle")
+t.bgcolor("greenyellow")
 
-# 사각형을 그리며 이동
-"""
-t.forward(100)  # 직진 100px
-t.left(90)      # 머리방향이 왼쪽으로 90도
-t.forward(100)
-t.left(90)
-t.forward(100)
-t.left(90)
-t.forward(100)
-"""
-"""
-for i in range(4):
-    t.forward(100)
-    t.left(90)
-"""
-# 삼각형을 그리며 이동
-"""
-t.color('blue')
-t.left(120)
-t.forward(100)
-t.left(120)
-t.forward(100)
-t.left(120)
-t.forward(100)
-"""
-for i in range(4):
-    t.forward(100)
-    t.right(90)
+n = 4    # 변의 개수
+d = 100  # 거리(길이)
+# 각도 = 360 / 변의 개수
+for i in range(n):
+    t.forward(d)
+    t.right(360/n)
 
-t.color('blue')
-for i in range(3):
-    t.forward(100)
-    t.left(120)
+n = 3
+for i in range(n):
+    t.forward(d)
+    t.right(360/n)
 
-t.color('red')
-t.pensize(3)
-t.circle(50)    # 반지름이 50px인 원
-"""
-for i in range(5):
-    t.forward(100)
-    t.left(72)
-"""
-"""
-for i in range(6):
-    t.forward(100)
-    t.left(60)
-"""
 t.mainloop()
