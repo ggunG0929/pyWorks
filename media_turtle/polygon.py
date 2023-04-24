@@ -70,4 +70,4 @@ for i in range(5):
     t.forward(100)
     t.right(145)
 """
-# t.mainloop()
+t.mainloop()
