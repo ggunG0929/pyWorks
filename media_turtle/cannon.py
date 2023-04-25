@@ -30,7 +30,7 @@ def fire():
         t.write('Good!', False, "center", ("", 15))
     else:       # 목표 지점에 닿지 않았을 때
         t.color('red')
-        t.write('Try again!', True, "right", ("", 15))  # t의 위치가 글자의 오른쪽이나 왼쪽이나 중간
+        t.write('Try again!', False, "right", ("", 15))  # 두번째 항목 : 글자가 끝나는 위치로 거북이가 이동할지 여부 / 세번째 항목 : t의 위치가 글자의 오른쪽이나 왼쪽이나 중간
         t.color('black')
         t.goto(-200, 10)
         t.setheading(ang)   # 기억된 머리 각도 설정
