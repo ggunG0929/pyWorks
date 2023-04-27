@@ -17,5 +17,8 @@ class Airplane:
 
 
 # 객체 생성 방법
-air = Airplane()
-air.take_off()
+if __name__ == "__main__":
+    air = Airplane()
+    air.take_off()
+    air.fly()
+    air.land()

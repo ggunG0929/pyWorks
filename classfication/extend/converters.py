@@ -15,7 +15,7 @@ class Converter(ScaleConverter):
         super().__init__(units_from, units_to, factor)  # 부모멤버 상속받음
         self.offset = offset
 
-    def convert(self, value):
+    def convert(self, value):   # 함수 이름은 같으나 내용을 재정의
         #return self.factor * value + self.offset
         return super().convert(value) + self.offset
 
