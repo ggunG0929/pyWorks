@@ -2,7 +2,8 @@ import oracledb
 
 
 def getconn():  # dsn = 오라클 사용자 우클>속성>세부정보> 호스트이름:포트/sid
-    conn = oracledb.connect(user='c##mydb', password='mydb', dsn='localhost:1521/xe')
+    conn = oracledb.connect(user='c##mydb', password='mydb',
+                            dsn='localhost:1521/xe')    # dsn - data source name
     return conn
 
 
@@ -27,5 +28,5 @@ def insert():
     conn.close()
 
 
-insert()
+# insert()
 select()
