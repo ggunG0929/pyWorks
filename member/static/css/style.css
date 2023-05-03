@@ -27,6 +27,7 @@ nav{float: right; width: 70%; padding-top: 40px;}
 #main{clear: both; margin: 100px auto;}
 #main .img1{margin: 20px auto; text-align: center;}
 #main .img1 img{border-radius: 10px;}
+#main #demo{text-align: center; font-weight: bold;}
 
 /* footer 스타일 */
 footer{height: 80px; border-top: 2px solid #222;}
@@ -45,13 +46,13 @@ footer{height: 80px; border-top: 2px solid #222;}
 /* register 스타일 */
 #register{width: 500px; margin: 40px auto;}
 #register form{margin: 30px auto;}
-#register form ul li{height: 30px; margin: 30px;}
+#register form ul li{height: 30px; margin: 20px;}
 #register form label{width: 120px; float: left; padding-left: 30px;}
-#register form input[type='text'], input[type='password']{width: 200px; height: 25px;}
+#register form input[type='password'], input[type='text']{width: 260px; height: 25px;}
 #register form label.radio{width: 100px; padding-left: 0; margin-right: 15px;}
 #register from li.button{clear: both;}
-#register form input[type='submit'], input[type='reset']{width: 80px; height: 30px;}
-#register form input[type='submit']{margin-left: 150px;}
+#register form input[type='button'], input[type='reset']{width: 80px; height: 30px;}
+#register form input[type='button']{margin-left: 150px;}
 
 /* login 스타일 */
 #login{width: 500px; margin: 40px auto;}

@@ -42,5 +42,5 @@ def select_one():
 
 
 # insert()
-# select()
-select_one()
+select()
+# select_one()

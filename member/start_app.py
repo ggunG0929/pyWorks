@@ -7,6 +7,7 @@ import sqlite3
 app = Flask(__name__)
 app.secret_key = "asdfqwer1234"
 
+
 # sqlite3와 연동 - 연결 객체 생성
 def getconn():
     conn = sqlite3.connect("c:/green_project/sqlworks/pydb/memberdb.db")
@@ -47,6 +48,8 @@ def register():
         conn = getconn()
         cursor = conn.cursor()
         sql = f"INSERT INTO member(memberid, passwd, name, gender) VALUES ('{id}', '{pw}', '{name}', '{gender}')"
+        # 자동로그인 - 세션 발급
+        session['userid'] = request.form['memberid']
         cursor.execute(sql)
         conn.commit()
         conn.close()
