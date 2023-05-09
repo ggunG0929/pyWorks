@@ -2,6 +2,7 @@
 /* common 스타일 */
 *{margin: 0; padding: 0;}
 #container{width: 100%; margin: 0 auto;}
+h2{text-align: center;}
 a{text-decoration: none;}
 ul li{list-style: none;}
 
@@ -33,37 +34,38 @@ nav{float: right; width: 70%; height: 100px;}
 /* footer 스타일 */
 footer{height: 80px; border-top: 2px solid hotpink;}
 #bottomMenu{margin: 10px 10px 10px 20px;}
-#bottomMenu li{display: inline-block; margin: 10px 0; padding: 0 10px; border-right: 1px solid #ccc;}
+#bottomMenu li{display: inline-block; margin: 10px 0; padding: 0 15px 0 10px; border-right: 1px solid #ccc;}
 #bottomMenu li a{color: #444; font-size: 0.9em;}
 #bottomMenu li:last-child{border: none;}
 
 /* memberlist 스타일 */
-#memberlist{margin: 40px auto;}
-#memberlist table{width: 700px; margin: 30px auto;}
+#memberlist{width: 450px; margin: 40px auto;}
+#memberlist table{width: 450px; margin: 30px auto;}
 #memberlist table, th, td{border: 1px solid #ccc; border-collapse: collapse; text-align: center;}
-#memberlist table th, td{padding: 10px 0;}
+#memberlist table th, td{padding: 10px 0; font-size: 0.9em;}
 #memberlist table thead{background: #eee;}
 
 /* register 스타일 */
-#register{width: 500px; margin: 40px auto;}
-#register form{margin: 30px auto;}
-#register form ul li{height: 30px; margin: 20px;}
-#register form label{width: 120px; float: left; padding-left: 30px;}
-#register form input[type='password'], input[type='text']{width: 260px; height: 25px;}
-#register form label.radio{width: 100px; padding-left: 0; margin-right: 15px;}
-#register from li.button{clear: both;}
+#register{width: 400px; margin: 30px auto 100px;}
+#register form{margin: 20px auto;}
+#register form ul li{margin: 20px;}
+#register form ul li:nth-of-type(6){text-align: center; margin-left: 0;}
+#register form label{width: 120px; float: left; line-height: 35px; padding-left: 10px; margin-right: 10px;}
+#register form input[type='password'], input[type='text']{width: 200px; height: 25px;}
+#register form label.radio{width: 40px; padding-left: 0; margin-right: 15px;}
+#register from li.button{clear: both; padding-top: 30px; margin-left: 150px;}
 #register form input[type='button'], input[type='reset']{width: 80px; height: 30px;}
-#register form input[type='button']{margin-left: 150px;}
+#register form input[type='button']{margin: 50px 0 0 37px;}
 
 /* login 스타일 */
-#login{width: 500px; margin: 40px auto;}
-#login form{margin: 40px auto;}
+#login{width: 400px; margin: 30px auto 100px;}
+#login form{margin: 20px auto;}
 #login form ul li{margin: 30px 70px;}
-#login form label{width: 100px; float: left;}
-#login form input[type='text'], input[type='password']{width: 200px; height: 30px;}
+#login form label{width: 80px; line-height: 35px; float: left;}
+#login form input[type='text'], input[type='password']{width: 150px; height: 30px;}
 #login form input[type='submit']{width: 100px; height: 30px;}
-#login form ul li:nth-of-type(3){margin-left: 200px;}
-#login form p.error{text-align: center; color: #f00; font-weight: bold; padding-top: 15px;}
+#login form ul li:nth-of-type(3){margin-left: 150px;}
+#login form p.error{text-align: center; color: #f00; font-weight: bold; padding-top: 30px;}
 
 /* 태블릿 기준 - 780px 이상 */
 @media screen and (min-width: 780px){
@@ -76,6 +78,21 @@ footer{height: 80px; border-top: 2px solid hotpink;}
     #main h2{font-size: 1.3em;}
     #main .img1 img{width: 380px;}
     #bottomMenu{margin: 10px 10px 10px 50px; text-align: center;}
+    /* register 스타일 */
+    #register{width: 450px;}
+    #register form{margin: 30px auto 100px;}
+    #register form ul li{margin: 30px;}
+    #register form label{padding-left: 20px; margin-right: 10px;}
+    #register form input[type='button']{margin: 50px 0 0 50px;}
+    /* memberlist 스타일 */
+    #memberlist{width: 550px;}
+    #memberlist table{width: 550px;}
+    /* login 스타일 */
+    #login{width: 450px;}
+    #login form{margin: 30px auto 100px;}
+    #login form label{width: 100px;}
+    #login form input[type='text'], input[type='password']{width: 200px;}
+    #login form ul li:nth-of-type(3){margin-left: 175px;}
 }
 
 /* PC 기준 - 1100px 이상 */
@@ -91,4 +108,20 @@ footer{height: 80px; border-top: 2px solid hotpink;}
     #main h2{font-size: 1.4em;}
     #main .img1 img{width: 400px;}
     #bottomMenu{margin: 10px 10px 10px 60px;}
+    /* register 스타일 */
+    #register{width: 500px;}
+    #register form{margin: 30px auto;}
+    #register form ul li{margin: 30px;}
+    #register form label{padding-left: 20px;}
+    #register form input[type='password'], input[type='text']{width: 250px;}
+    #register form input[type='button']{margin: 50px 0 0 97px;}
+    /* memberlist 스타일 */
+    #memberlist{width: 600px;}
+    #memberlist table{width: 600px;}
+    /* login 스타일 */
+    #login{width: 500px;}
+    #login form{margin: 30px auto 150px;}
+    #login form label{width: 120px;}
+    #login form input[type='text'], input[type='password']{width: 230px;}
+    #login form ul li:nth-of-type(3){margin-left: 190px;}
 }
