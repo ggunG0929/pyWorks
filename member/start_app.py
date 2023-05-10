@@ -90,4 +90,25 @@ def logout():
     return redirect(url_for('index'))
 
 
+# 게시판 목록
+@app.route('/boardlist', methods=['GET'])
+def boardlist():
+    conn = getconn()
+    cursor = conn.cursor()
+    sql = "SELECT * FROM board"
+    cursor.execute(sql)
+    boardlist = cursor.fetchall()
+    # print(boardlist)
+    # for board in boardlist:
+    #     print(board)
+    conn.close()
+    return render_template('boardlist.html', boardlist=boardlist)
+
+
+# 글쓰기
+@app.route('/writing')
+def writing():
+    return render_template('writing.html')
+
+
 app.run()

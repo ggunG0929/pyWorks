@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>강남 커뮤니티입니다.</title>
     <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}">
+    <script src="{{url_for('static', filename='js/main-js.js')}}"></script>
 </head>
 <body>
     <div id="container">
@@ -16,7 +17,7 @@
         {% endif %}
         {% include 'header.html' %}
         <div id="main-pic">
-            <img src="{{ url_for('static', filename='images/header1.jpg') }}">
+            <img src="{{ url_for('static', filename='images/header1.jpg') }}" id="pic">
         </div>
         <section id="memberlist">
             <h2>회원 목록</h2>
