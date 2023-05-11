@@ -3,13 +3,15 @@ import argparse
 
 def get_args():
     parser = argparse.ArgumentParser(
-        description="Picnic game",
+        description="Picnic Game",
         formatter_class=argparse.ArgumentDefaultsHelpFormatter
     )
+    # 아이템(인수)을 여러개 전달(사용)
     parser.add_argument('item',
                         metavar='str',
                         nargs='+',  # 인수를 1개 이상 전달함
                         help="Item(s) to bring")
+    # -s, --sorted를 사용하면 정렬 기능을 사용
     parser.add_argument('-s',
                         '--sorted',
                         action='store_true',

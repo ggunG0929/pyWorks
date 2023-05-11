@@ -25,7 +25,7 @@
                 </li>
                 {% if session ['userid'] %}
                 <li><a href="{{ url_for('logout') }}">
-                    <span>({{ session ['userid']}}님)</span> 로그아웃</a>
+                    <span class="session">({{ session ['userid']}}님)</span> 로그아웃</a>
                 </li>
                 {% else %}
                 <li><a href="{{ url_for('login') }}">로그인</a></li>
