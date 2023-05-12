@@ -110,8 +110,8 @@ def boardlist():
 def writing():
     if request.method == 'POST':
         # 입력된 제목, 글 내용을 가져와서 DB에 저장
-        title = request.form['title']
-        content = request.form['content']
+        title = request.form['title'].replace("'", "''")   # 홑따옴표 안되는 거 제거 위해서는 뒤에 .replace("'", "''")
+        content = request.form['content'].replace("'", "''")
         # userid: session 이름을 가져옴
         memberid = session.get('userid')
         conn = getconn()
@@ -119,6 +119,8 @@ def writing():
         sql = f"INSERT INTO board(title, content, memberid) " \
               f"VALUES ('{title}', '{content}', '{memberid}')"  # 문자이기때문에 {}에도 따옴표 꼭
         cursor.execute(sql)
+        # sql = "INSERT INTO board(title, content, memberid) VALUES (?, ?, ?)"  # 문자이기때문에 {}에도 따옴표 꼭
+        # cursor.execute(sql, (title, content, memberid))     # 이 방식으로 하면 replace 안써도 작은따옴표가 들어감
         conn.commit()
         conn.close()
         return redirect(url_for('boardlist'))
@@ -135,6 +137,11 @@ def detail(bno):    # 매개변수로 bno 설정
     sql = f"SELECT * FROM board WHERE bno = {bno}"   # 숫자이기 때문에 따옴표 x
     cursor.execute(sql)
     board = cursor.fetchone()   # 게시글 1개 가져옴
+    # 조회수 증가
+    hit = board[4]
+    sql = f"UPDATE board SET hit = {hit + 1} WHERE bno = {bno}"
+    cursor.execute(sql)
+    conn.commit()
     conn.close()
     return render_template('detail.html', board=board)
 
@@ -150,6 +157,32 @@ def delete(bno):
     conn.commit()
     conn.close()
     return redirect(url_for('boardlist'))
+
+
+# 게시글 수정
+@app.route('/update/<int:bno>', methods=['GET', 'POST'])
+def update(bno):
+    if request.method == "POST":
+        # 수정한 입력 내용을 board 테이블에 저장
+        title = request.form['title'].replace("'", "''")   # 홑따옴표 안되는 거 제거 위해서는 뒤에 .replace("'", "''")
+        content = request.form['content'].replace("'", "''")
+        # DB에 저장
+        conn = getconn()
+        cursor = conn.cursor()
+        sql = f"UPDATE board SET title = '{title}', content = '{content}' WHERE bno = {bno}"
+        cursor.execute(sql)
+        conn.commit()
+        conn.close()
+        return redirect(url_for('detail', bno=bno))     # 상세보기(글번호 명시)
+    else:
+        # 수정할 글(board)을 db에 가져오기
+        conn = getconn()
+        cursor = conn.cursor()
+        sql = f"SELECT * FROM board WHERE bno = {bno}"
+        cursor.execute(sql)
+        board = cursor.fetchone()   # 게시글 1개 반환받음
+        conn.close()
+        return render_template('update.html', board=board)
 
 
 app.run()
