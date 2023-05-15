@@ -3,6 +3,7 @@
 # 웹 서버 - flask
 from flask import Flask, render_template, request, redirect, url_for, session
 import sqlite3
+from datetime import datetime
 
 app = Flask(__name__)
 app.secret_key = "asdfqwer1234"
@@ -138,7 +139,7 @@ def detail(bno):    # 매개변수로 bno 설정
     cursor.execute(sql)
     board = cursor.fetchone()   # 게시글 1개 가져옴
     # 조회수 증가
-    hit = board[4]
+    hit = board[5]
     sql = f"UPDATE board SET hit = {hit + 1} WHERE bno = {bno}"
     cursor.execute(sql)
     conn.commit()
@@ -166,10 +167,12 @@ def update(bno):
         # 수정한 입력 내용을 board 테이블에 저장
         title = request.form['title'].replace("'", "''")   # 홑따옴표 안되는 거 제거 위해서는 뒤에 .replace("'", "''")
         content = request.form['content'].replace("'", "''")
+        now = datetime.now()    # 수정한 현재 날짜와 시간
+        modifydate = now.strftime("%Y-%m-%d %H:%M:%S")
         # DB에 저장
         conn = getconn()
         cursor = conn.cursor()
-        sql = f"UPDATE board SET title = '{title}', content = '{content}' WHERE bno = {bno}"
+        sql = f"UPDATE board SET title = '{title}', content = '{content}', modifydate = '{modifydate}' WHERE bno = {bno}"
         cursor.execute(sql)
         conn.commit()
         conn.close()
