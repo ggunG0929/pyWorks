@@ -9,9 +9,9 @@
 import random
 
 print("♠ 가위 바위 보 게임 ♠")
-younum = 3
+younum = 3                  # 임의로 전역변수
 while younum == 3:
-    you = input("당신: ")
+    you = input("당신: ")    # 문자인풋을 숫자처리
     if you == "가위":
         younum = 0
     elif you == "바위":
@@ -19,7 +19,7 @@ while younum == 3:
     elif you == "보":
         younum = 2
     else:
-        print("잘못된 입력입니다. 다시 입력해 주세요")
+        print("잘못된 입력입니다. 다시 입력해 주세요")  # 원하는 인풋이 들어올 때까지 반복
 random = random.randint(0, 2)
 rsp = ["가위", "바위", "보"]
 com = rsp[random]
@@ -38,12 +38,12 @@ print("결과: " + result)
 # 선생님답
 you = input("당신: ")
 rsp = ["가위", "바위", "보"]
-com = random.choice(rsp)
+com = random.choice(rsp)    # 기억할 것!!!!!!!!!!!!!!
 print("컴퓨터: " + com)
 
 if you not in rsp:
     print("잘못된 입력입니다. 다시 입력해 주세요")
-    sys.exit(0)  # 프로그램 즉시 종료
+    sys.exit(0)  # 프로그램 즉시 종료. 기억!!!!!!!!!!!!!
 
 if you == com:
     print('결과 : 무승부')

@@ -12,7 +12,7 @@ import random
 words = ['dog', 'cat', 'monkey', 'chicken', 'frog', 'horse']
 lives_remaining = 10
 guessed_letters = ''
-temp = 0
+temp = 0    # 임시로 전역변수를 만듬
 
 
 def play():
@@ -52,9 +52,9 @@ def print_word_with_blanks(word):
         else:
             display_word += '-'
     print(display_word)
-    if display_word.find("-") <= -1:    # 선생님 예제를 보고 display_word에서 -가 없는 경우를 추가함
+    if display_word.find("-") <= -1:    # 선생님 예제를 보고 display_word에서 -가 없는 경우를 정답을 맞춘 경우로 가정함
         global temp
-        temp = 1    # 임시로 temp에 1을 지정
+        temp = 1    # 임시로 temp에 변화를 줌
         return temp
 
 
@@ -63,7 +63,7 @@ def process_guess(guess, word):
     global guessed_letters
     lives_remaining -= 1
     guessed_letters += guess
-    if guess == word:
+    if guess == word:   # 성호씨의 경우 set의 특성(중복x, 순서x)을 이용, set(guessed_letters)==set(word)를 추가, 더 간결하게 수정
         return True
     return False
 
